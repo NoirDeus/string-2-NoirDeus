@@ -38,9 +38,10 @@ def not_bad(s):
     #Sets the end point of the found word "bad"
     CheckEnd = Check2 + 3
     #Creates a variable with the test str "s" as its value
-    ReturnValue = "s" 
+    ReturnValue = s 
     #compares the "slice values" found in Check1 and Check2. If true the word not comes before bad
     if Check1 < Check2: 
+        #updates the variable to replace the portion from Check1 to CheckEnd with good
         ReturnValue = ReturnValue.replace(ReturnValue[Check1:CheckEnd],"good")
         return ReturnValue
         #Fills the variable "ReturnValue" with a string to satisfy the prompt. Made to include "!"
