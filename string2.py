@@ -31,16 +31,26 @@ def verbing(s):
 # This dinner is good!
 
 def not_bad(s):
-    Check1 = s.find("not")
-    Check2 = s.find("bad")
-    ReturnValue = ""
-    if Check1 < Check2:
-        ReturnValue = s[:Check1] + "good" + s[-1]
-        if ReturnValue[-1] == ReturnValue[-2]:
-            ReturnValue = s[:Check1] + "good"
+    #Searches the string for the second string "not". Assigns the slice value preceding the second string to the variable
+    Check1 = s.find("not") 
+    #Searches the string for the second string "bad". Assigns the slice value preceding the second string to the variable
+    Check2 = s.find("bad") 
+    #Creates a variable to fill later
+    ReturnValue = "" 
+    #compares the "slice values" found in Check1 and Check2. If true the word not comes before bad
+    if Check1 < Check2: 
+        #Fills the variable "ReturnValue" with a string to satisfy the prompt. Made to include "!"
+        ReturnValue = s[:Check1] + "good" + s[-1] 
+        #Checks to see if the last two characters in the string are the same. Workaround to allow the "!" but not give a duplicate of the last words final character
+        if ReturnValue[-1] == ReturnValue[-2]:  
+            #If the ending character is doubled leaves off added final character 
+            ReturnValue = s[:Check1] + "good"   
+            #returns the variable
             return ReturnValue
         else:
-            return ReturnValue
+            #Returns the string with "!" because duplicate final character wasn't found
+            return ReturnValue 
+    #If both "not" and "bad" aren't found returns initial string
     return s
 
 
