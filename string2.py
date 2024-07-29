@@ -35,21 +35,25 @@ def not_bad(s):
     Check1 = s.find("not") 
     #Searches the string for the second string "bad". Assigns the slice value preceding the second string to the variable
     Check2 = s.find("bad") 
-    #Creates a variable to fill later
-    ReturnValue = "" 
+    #Sets the end point of the found word "bad"
+    CheckEnd = Check2 + 3
+    #Creates a variable with the test str "s" as its value
+    ReturnValue = "s" 
     #compares the "slice values" found in Check1 and Check2. If true the word not comes before bad
     if Check1 < Check2: 
+        ReturnValue = ReturnValue.replace(ReturnValue[Check1:CheckEnd],"good")
+        return ReturnValue
         #Fills the variable "ReturnValue" with a string to satisfy the prompt. Made to include "!"
-        ReturnValue = s[:Check1] + "good" + s[-1] 
+        #ReturnValue = s[:Check1] + "good" + s[-1] 
         #Checks to see if the last two characters in the string are the same. Workaround to allow the "!" but not give a duplicate of the last words final character
-        if ReturnValue[-1] == ReturnValue[-2]:  
-            #If the ending character is doubled leaves off added final character 
-            ReturnValue = s[:Check1] + "good"   
-            #returns the variable
-            return ReturnValue
-        else:
-            #Returns the string with "!" because duplicate final character wasn't found
-            return ReturnValue 
+        #if ReturnValue[-1] == ReturnValue[-2]:  
+        #    #If the ending character is doubled leaves off added final character 
+        #    ReturnValue = s[:Check1] + "good"   
+        #    #returns the variable
+        #    return ReturnValue
+        #else:
+        #    #Returns the string with "!" because duplicate final character wasn't found
+        #    return ReturnValue 
     #If both "not" and "bad" aren't found returns initial string
     return s
 
